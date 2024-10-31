@@ -5,19 +5,20 @@ import com.unicauca.edu.asae.core.docente.infraestructura.output.controladorExce
 import lombok.Getter;
 
 @Getter
-public class EntidadNoExisteException extends RuntimeException {
+public class EntidadYaExisteException extends RuntimeException {
     private final String llaveMensaje;
     private final String codigo;
 
-    public EntidadNoExisteException(CodigoError code) {
+    public EntidadYaExisteException(CodigoError code) {
         super(code.getCodigo());
         this.llaveMensaje = code.getLlaveMensaje();
         this.codigo = code.getCodigo();
     }
 
-    public EntidadNoExisteException(final String message) {
+    public EntidadYaExisteException(final String message) {
         super(message);
-        this.llaveMensaje = CodigoError.ENTIDAD_NO_ENCONTRADA.getLlaveMensaje();
-        this.codigo = CodigoError.ENTIDAD_NO_ENCONTRADA.getCodigo();
+        this.llaveMensaje = CodigoError.ENTIDAD_YA_EXISTE.getLlaveMensaje();
+        this.codigo = CodigoError.ENTIDAD_YA_EXISTE.getCodigo();
     }
+
 }

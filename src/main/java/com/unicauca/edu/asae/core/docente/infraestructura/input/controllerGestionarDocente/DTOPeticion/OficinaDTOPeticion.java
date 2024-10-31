@@ -1,6 +1,5 @@
 package com.unicauca.edu.asae.core.docente.infraestructura.input.controllerGestionarDocente.DTOPeticion;
 
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -10,16 +9,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class DocenteDTOPeticion {
+public class OficinaDTOPeticion {
     @NotNull
     @Size(min = 5, max = 45)
     private String nombre;
     @NotNull
-    @Size(min = 5, max = 45)
-    private String apellido;
-    @Email
-    @NotNull
-    private String correo;
-    @NotNull
-    private OficinaDTOPeticion oficinaAsignada;
+    @Size(min = 5, max = 55)
+    private String ubicacion;
 }

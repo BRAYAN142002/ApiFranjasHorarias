@@ -18,15 +18,12 @@ import lombok.Setter;
 
 @Entity
 @Table(name="docentes")
-@PrimaryKeyJoinColumn(name = "idDocente")
+//@PrimaryKeyJoinColumn(name = "idDocente")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class DocenteEntity extends PersonaEntity{
-    public DocenteEntity(String nombre,String apellido,String correo){
-        super(nombre,apellido,correo);
-    }
 
     @OneToOne(cascade={CascadeType.PERSIST})
     @JoinColumn(name="oficina_id")
@@ -34,4 +31,8 @@ public class DocenteEntity extends PersonaEntity{
 
     @ManyToMany(cascade={CascadeType.PERSIST},mappedBy="listaDocentesEntity")
     private List<CursoEntity> listaCursosEntity;
+
+    public DocenteEntity(String nombre,String apellido,String correo){
+        super(nombre,apellido,correo);
+    }
 }
