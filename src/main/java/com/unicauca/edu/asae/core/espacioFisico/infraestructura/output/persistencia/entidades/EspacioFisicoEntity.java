@@ -2,7 +2,7 @@ package com.unicauca.edu.asae.core.espacioFisico.infraestructura.output.persiste
 
 import java.util.List;
 
-import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.persistencia.entidades.FranjaHoraria;
+import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.persistencia.entidades.FranjaHorariaEntity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -23,7 +23,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EspacioFisico {
+public class EspacioFisicoEntity {
      @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
@@ -32,10 +32,10 @@ public class EspacioFisico {
     @Column(name="capacidad",nullable=false)
     private int capacidad;
 
-    @OneToMany(cascade=CascadeType.PERSIST,mappedBy="objFranjaHoraria")
-    private List<FranjaHoraria> franjasHorarias;
+    @OneToMany(cascade=CascadeType.PERSIST,mappedBy="objEspacioFisicoEntity")
+    private List<FranjaHorariaEntity> franjasHorariasEntity;
     
-      public EspacioFisico(String nombre,int capacidad){
+      public EspacioFisicoEntity(String nombre,int capacidad){
         this.nombre=nombre;
         this.capacidad=capacidad;
     }

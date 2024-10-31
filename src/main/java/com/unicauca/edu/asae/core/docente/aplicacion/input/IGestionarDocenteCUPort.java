@@ -1,6 +1,6 @@
-package com.unicauca.edu.asae.core.aplicacion.input;
+package com.unicauca.edu.asae.core.docente.aplicacion.input;
 
-import com.unicauca.edu.asae.core.dominio.models.Docente;
+import com.unicauca.edu.asae.core.docente.dominio.models.Docente;
 
 public interface IGestionarDocenteCUPort {
 

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ApiFranjasHorariasApplication<api-franjas-horarias>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.unicauca.edu.asae.core.ApiFranjasHorariasApplication",
+            "projectName": "api-franjas-horarias",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

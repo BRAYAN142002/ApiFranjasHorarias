@@ -1,9 +1,9 @@
-package com.unicauca.edu.asae.core.dominio.casosDeUso;
+package com.unicauca.edu.asae.core.docente.dominio.casosDeUso;
 
-import com.unicauca.edu.asae.core.aplicacion.input.IGestionarDocenteCUPort;
-import com.unicauca.edu.asae.core.aplicacion.output.IDocenteFormateadorResultadosPort;
-import com.unicauca.edu.asae.core.aplicacion.output.IGestionarDocenteGatewayPort;
-import com.unicauca.edu.asae.core.dominio.models.Docente;
+import com.unicauca.edu.asae.core.docente.aplicacion.input.IGestionarDocenteCUPort;
+import com.unicauca.edu.asae.core.docente.aplicacion.output.IDocenteFormateadorResultadosPort;
+import com.unicauca.edu.asae.core.docente.aplicacion.output.IGestionarDocenteGatewayPort;
+import com.unicauca.edu.asae.core.docente.dominio.models.Docente;
 
 public class GestionarDocenteCUAdapter implements IGestionarDocenteCUPort {
 

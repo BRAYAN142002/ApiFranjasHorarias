@@ -1,6 +1,6 @@
 package com.unicauca.edu.asae.core.docente.aplicacion.output;
 
-import com.unicauca.edu.asae.core.dominio.models.Docente;
+import com.unicauca.edu.asae.core.docente.dominio.models.Docente;
 
 public interface IGestionarDocenteGatewayPort {
 

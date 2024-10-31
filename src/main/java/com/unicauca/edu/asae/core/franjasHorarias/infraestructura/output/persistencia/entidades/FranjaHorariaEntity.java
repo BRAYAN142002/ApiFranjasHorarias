@@ -2,7 +2,7 @@ package com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.persis
 
 import java.sql.Time;
 
-import com.unicauca.edu.asae.core.espacioFisico.infraestructura.output.persistencia.entidades.EspacioFisico;
+import com.unicauca.edu.asae.core.espacioFisico.infraestructura.output.persistencia.entidades.EspacioFisicoEntity;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -24,7 +24,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class FranjaHoraria {
+public class FranjaHorariaEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
@@ -37,13 +37,13 @@ public class FranjaHoraria {
     
     @ManyToOne(cascade={CascadeType.PERSIST})
     @JoinColumn(name="espacio_fisico_id",nullable=false)
-    private EspacioFisico objEspacioFisico;
+    private EspacioFisicoEntity objEspacioFisicoEntity;
 
     @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name="curso_id")
-    private Curso objCurso;
+    private CursoEntity objCursoEntity;
 
-    public FranjaHoraria(String dia,Time horaInicio,Time horaFin){
+    public FranjaHorariaEntity(String dia,Time horaInicio,Time horaFin){
         this.dia=dia;
         this.hora_inicio=horaInicio;
         this.hora_fin=horaFin;
