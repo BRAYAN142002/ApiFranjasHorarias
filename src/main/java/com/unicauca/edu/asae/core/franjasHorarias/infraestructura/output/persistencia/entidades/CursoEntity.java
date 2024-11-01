@@ -2,7 +2,7 @@ package com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.persis
 
 import java.util.List;
 
-import com.unicauca.edu.asae.core.docente.dominio.models.Docente;
+
 import com.unicauca.edu.asae.core.docente.infraestructura.output.persistencia.entidades.DocenteEntity;
 
 import jakarta.persistence.CascadeType;

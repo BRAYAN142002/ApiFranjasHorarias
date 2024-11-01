@@ -1,6 +1,6 @@
 package com.unicauca.edu.asae.core.docente.infraestructura.output.persistencia.entidades;
 
-import com.unicauca.edu.asae.core.docente.dominio.models.Docente;
+
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

@@ -14,7 +14,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Curso {
-     private Integer id;
+    private Integer id;
     private String nombre;
     private List<FranjaHoraria> franjasHorarias;
     private Asignatura objAsignatura;

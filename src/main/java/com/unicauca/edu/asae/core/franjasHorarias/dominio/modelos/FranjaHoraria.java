@@ -2,7 +2,8 @@ package com.unicauca.edu.asae.core.franjasHorarias.dominio.modelos;
 
 import java.sql.Time;
 
-import com.unicauca.edu.asae.core.espacioFisico.infraestructura.output.persistencia.entidades.EspacioFisicoEntity;
+import com.unicauca.edu.asae.core.espacioFisico.dominio.modelos.EspacioFisico;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +27,7 @@ public class FranjaHoraria {
     private Time hora_fin;
     
     
-    private EspacioFisicoEntity objEspacioFisico;
+    private EspacioFisico objEspacioFisico;
 
     
     private Curso objCurso;
