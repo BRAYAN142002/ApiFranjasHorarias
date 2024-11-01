@@ -3,7 +3,7 @@ package com.unicauca.edu.asae.core;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = "com.unicauca.edu.asae.core")
+@SpringBootApplication()
 public class ApiFranjasHorariasApplication {
 
 	public static void main(String[] args) {

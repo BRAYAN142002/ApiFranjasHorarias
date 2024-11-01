@@ -9,10 +9,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DocenteDTORespuesta {
+public class OficinaDTORespuesta {
     private Integer id;
     private String nombre;
-    private String apellido;
-    private String correo;
-    private OficinaDTORespuesta oficinaAsignada;
+    private String ubicacion;
+
 }

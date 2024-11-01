@@ -15,14 +15,14 @@ import jakarta.persistence.InheritanceType;
 
 @Entity
 @Table(name="personas")
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonaEntity {
+public abstract class PersonaEntity {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Integer id;
     @Column(name="nombre", nullable=false, length=50)
     private String nombre;
