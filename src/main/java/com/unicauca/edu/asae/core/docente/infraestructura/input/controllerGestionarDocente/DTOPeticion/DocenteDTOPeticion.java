@@ -1,5 +1,7 @@
 package com.unicauca.edu.asae.core.docente.infraestructura.input.controllerGestionarDocente.DTOPeticion;
 
+
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -20,6 +22,7 @@ public class DocenteDTOPeticion {
     @Email
     @NotNull
     private String correo;
-    @NotNull
+    
+    @Valid
     private OficinaDTOPeticion oficinaAsignada;
 }

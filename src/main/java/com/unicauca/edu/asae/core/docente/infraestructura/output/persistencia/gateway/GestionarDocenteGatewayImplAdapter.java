@@ -22,17 +22,17 @@ public class GestionarDocenteGatewayImplAdapter implements IGestionarDocenteGate
     }
 
     @Override
-    public boolean existeDocentePorId(Integer id) {
-        return this.objDocenteRepository.existsById(id);
-    }
-
-    @Override
     public Docente guardar(Docente objDocente) {
         DocenteEntity objDocenteEntity = this.mapper.map(objDocente, DocenteEntity.class);
         DocenteEntity objDocenteEntityRegistrado = this.objDocenteRepository.save(objDocenteEntity);
         Docente objDocenteRespuesta = this.mapper.map(objDocenteEntityRegistrado, Docente.class);
 
         return objDocenteRespuesta;
+    }
+
+    @Override
+    public boolean existeDocentePorCorreo(String correo) {
+        return this.objDocenteRepository.existsByCorreo(correo);
     }
 
 

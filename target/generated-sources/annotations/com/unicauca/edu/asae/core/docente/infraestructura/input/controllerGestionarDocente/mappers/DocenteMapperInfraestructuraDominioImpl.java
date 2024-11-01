@@ -1,21 +1,22 @@
 package com.unicauca.edu.asae.core.docente.infraestructura.input.controllerGestionarDocente.mappers;
 
 import com.unicauca.edu.asae.core.docente.dominio.models.Docente;
-import com.unicauca.edu.asae.core.docente.dominio.models.Oficina;
 import com.unicauca.edu.asae.core.docente.infraestructura.input.controllerGestionarDocente.DTOPeticion.DocenteDTOPeticion;
-import com.unicauca.edu.asae.core.docente.infraestructura.input.controllerGestionarDocente.DTOPeticion.OficinaDTOPeticion;
 import com.unicauca.edu.asae.core.docente.infraestructura.input.controllerGestionarDocente.DTORespuesta.DocenteDTORespuesta;
-import com.unicauca.edu.asae.core.docente.infraestructura.input.controllerGestionarDocente.DTORespuesta.OficinaDTORespuesta;
 import javax.annotation.processing.Generated;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-10-31T01:04:29-0500",
-    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.40.0.v20240919-1711, environment: Java 17.0.12 (Eclipse Adoptium)"
+    date = "2024-11-01T10:20:58-0500",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.40.0.z20241023-1306, environment: Java 17.0.13 (Eclipse Adoptium)"
 )
 @Component
 public class DocenteMapperInfraestructuraDominioImpl implements DocenteMapperInfraestructuraDominio {
+
+    @Autowired
+    private OficinaMapperInfraestructuraDominio oficinaMapperInfraestructuraDominio;
 
     @Override
     public Docente mappearDePeticionADocente(DocenteDTOPeticion objPeticion) {
@@ -28,7 +29,7 @@ public class DocenteMapperInfraestructuraDominioImpl implements DocenteMapperInf
         docente.setApellido( objPeticion.getApellido() );
         docente.setCorreo( objPeticion.getCorreo() );
         docente.setNombre( objPeticion.getNombre() );
-        docente.setOficinaAsignada( mappearDePeticionAOficina( objPeticion.getOficinaAsignada() ) );
+        docente.setOficinaAsignada( oficinaMapperInfraestructuraDominio.mappearDePeticionAOficina( objPeticion.getOficinaAsignada() ) );
 
         return docente;
     }
@@ -45,36 +46,8 @@ public class DocenteMapperInfraestructuraDominioImpl implements DocenteMapperInf
         docenteDTORespuesta.setCorreo( objdocente.getCorreo() );
         docenteDTORespuesta.setId( objdocente.getId() );
         docenteDTORespuesta.setNombre( objdocente.getNombre() );
-        docenteDTORespuesta.setOficinaAsignada( oficinaToOficinaDTORespuesta( objdocente.getOficinaAsignada() ) );
+        docenteDTORespuesta.setOficinaAsignada( oficinaMapperInfraestructuraDominio.mappearDeOficinaARespuesta( objdocente.getOficinaAsignada() ) );
 
         return docenteDTORespuesta;
-    }
-
-    @Override
-    public Oficina mappearDePeticionAOficina(OficinaDTOPeticion objOficina) {
-        if ( objOficina == null ) {
-            return null;
-        }
-
-        Oficina oficina = new Oficina();
-
-        oficina.setNombre( objOficina.getNombre() );
-        oficina.setUbicacion( objOficina.getUbicacion() );
-
-        return oficina;
-    }
-
-    protected OficinaDTORespuesta oficinaToOficinaDTORespuesta(Oficina oficina) {
-        if ( oficina == null ) {
-            return null;
-        }
-
-        OficinaDTORespuesta oficinaDTORespuesta = new OficinaDTORespuesta();
-
-        oficinaDTORespuesta.setId( oficina.getId() );
-        oficinaDTORespuesta.setNombre( oficina.getNombre() );
-        oficinaDTORespuesta.setUbicacion( oficina.getUbicacion() );
-
-        return oficinaDTORespuesta;
     }
 }

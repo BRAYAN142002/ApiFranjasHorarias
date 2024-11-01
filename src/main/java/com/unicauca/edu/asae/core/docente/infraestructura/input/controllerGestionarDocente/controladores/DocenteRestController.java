@@ -25,8 +25,9 @@ public class DocenteRestController {
     private final DocenteMapperInfraestructuraDominio objMapper;
 
     @RequestMapping("/docentes")
-    public ResponseEntity<DocenteDTORespuesta> crearDocente(@RequestBody @Valid DocenteDTOPeticion objDocente) {
+    public ResponseEntity<DocenteDTORespuesta> crearDocente(@RequestBody @Valid DocenteDTOPeticion objDocente) {       
         Docente objDocenteCrear = this.objMapper.mappearDePeticionADocente(objDocente);
+        objDocenteCrear.getOficinaAsignada().setObjDocente(objDocenteCrear);
         Docente objDocenteCreado = this.objGestionarDocenteCUInt.crear(objDocenteCrear);
         ResponseEntity<DocenteDTORespuesta> docenteRespuesta = new ResponseEntity<DocenteDTORespuesta>(
                 this.objMapper.mappearDeDocenteARespuesta(objDocenteCreado), HttpStatus.CREATED
