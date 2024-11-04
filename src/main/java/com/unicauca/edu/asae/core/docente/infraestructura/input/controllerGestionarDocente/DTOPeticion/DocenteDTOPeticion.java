@@ -13,11 +13,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class DocenteDTOPeticion {
-    @NotNull
-    @Size(min = 5, max = 45)
+    @NotNull(message = "{docente.nombre.emply}")
+    @Size(min = 5, max = 45, message = "{docente.nombre.size}")
     private String nombre;
-    @NotNull
-    @Size(min = 5, max = 45)
+    @NotNull(message = "{docente.apellido.emply}")
+    @Size(min = 5, max = 45, message = "{docente.nombre.size}")
     private String apellido;
     @Email
     @NotNull

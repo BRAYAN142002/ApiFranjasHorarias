@@ -10,10 +10,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class OficinaDTOPeticion {
-    @NotNull
-    @Size(min = 5, max = 45)
+    @NotNull(message = "{oficina.nombre.emply}")
+    @Size(min = 5, max = 45, message = "{oficina.nombre.size}")
     private String nombre;
-    @NotNull
-    @Size(min = 5, max = 55)
+    @NotNull(message = "{oficina.ubicacion.emply}")
+    @Size(min = 5, max = 55, message = "{oficina.nombre.size}")
     private String ubicacion;
 }
