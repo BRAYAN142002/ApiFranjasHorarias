@@ -6,7 +6,6 @@ import com.unicauca.edu.asae.core.docente.aplicacion.output.IGestionarDocenteGat
 import com.unicauca.edu.asae.core.docente.dominio.models.Docente;
 import com.unicauca.edu.asae.core.docente.infraestructura.output.persistencia.entidades.DocenteEntity;
 import com.unicauca.edu.asae.core.docente.infraestructura.output.persistencia.repositorios.DocenteRepositoryInt;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 
 @Service
@@ -17,7 +16,7 @@ public class GestionarDocenteGatewayImplAdapter implements IGestionarDocenteGate
 
     private final ModelMapper mapper;
 
-    public GestionarDocenteGatewayImplAdapter(DocenteRepositoryInt objDocenteRepository, @Qualifier("DocenteModelMapper")ModelMapper docenteModelMapper) {
+    public GestionarDocenteGatewayImplAdapter(DocenteRepositoryInt objDocenteRepository, ModelMapper docenteModelMapper) {
         this.objDocenteRepository = objDocenteRepository;
         this.mapper = docenteModelMapper;
     }

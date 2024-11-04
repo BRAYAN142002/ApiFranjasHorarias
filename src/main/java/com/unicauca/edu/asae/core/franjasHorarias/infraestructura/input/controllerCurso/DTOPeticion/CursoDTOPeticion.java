@@ -8,6 +8,5 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class CursoDTOPeticion {
-    private String nombre;
-    
+    private String nombre;    
 }
