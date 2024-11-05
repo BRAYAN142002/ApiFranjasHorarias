@@ -31,4 +31,10 @@ public class FranjaHoraria {
 
     
     private Curso objCurso;
+
+    public FranjaHoraria(String dia,Time  horaInicio,Time horaFin){
+        this.dia=dia;
+        this.hora_inicio=horaInicio;
+        this.hora_fin=horaFin;
+    }
 }

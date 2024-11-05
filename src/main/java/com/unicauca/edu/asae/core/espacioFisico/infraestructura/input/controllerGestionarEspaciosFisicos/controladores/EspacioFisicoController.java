@@ -28,7 +28,7 @@ public class EspacioFisicoController {
             this.objMapper=espacioFisicoMapperInfraestructuraDominio;
     }
     @PostMapping("/create")
-    public ResponseEntity<EspacioFIsicoDTORespuesta> postMethodName(@RequestBody EspacioFisicoDTOPeticion peticion) {
+    public ResponseEntity<EspacioFIsicoDTORespuesta> crearEspacioFisico(@RequestBody EspacioFisicoDTOPeticion peticion) {
         EspacioFisico espacioFisico=objMapper.mapperPeticionAEspacioFisico(peticion);
         espacioFisico=gestionarEspacioFisicoCUPort.crear(espacioFisico);
        ResponseEntity<EspacioFIsicoDTORespuesta>objRespuesta=new ResponseEntity<EspacioFIsicoDTORespuesta>(objMapper.mappearEspacioFisicoARespuesta(espacioFisico),HttpStatus.CREATED);

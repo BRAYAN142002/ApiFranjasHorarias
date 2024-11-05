@@ -34,6 +34,7 @@ public class CursoEntity {
     private Integer id;
     @Column(name="nombre",nullable=false,length=70)
     private String nombre;
+    
     @OneToMany(cascade=CascadeType.PERSIST,mappedBy="objCursoEntity")
     private List<FranjaHorariaEntity> franjasHorariasEntity;
 

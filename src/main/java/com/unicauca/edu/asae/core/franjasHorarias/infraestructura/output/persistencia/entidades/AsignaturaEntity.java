@@ -13,6 +13,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
@@ -20,6 +21,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class AsignaturaEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -29,10 +31,10 @@ public class AsignaturaEntity {
     @Column(name="codigo",nullable=false,length=50)
     private String codigo;
 
-    @OneToMany(cascade={CascadeType.PERSIST},fetch=FetchType.LAZY, mappedBy="objAsignaturaEntity")
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="objAsignaturaEntity")
     private List<CursoEntity> cursosEntity;
 
-     public AsignaturaEntity(String nombre,String codigo){
+    public AsignaturaEntity(String nombre,String codigo){
         this.nombre=nombre;
         this.codigo=codigo;
     }

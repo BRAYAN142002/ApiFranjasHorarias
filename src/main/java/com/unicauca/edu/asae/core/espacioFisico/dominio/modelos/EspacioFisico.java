@@ -1,6 +1,7 @@
 package com.unicauca.edu.asae.core.espacioFisico.dominio.modelos;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.unicauca.edu.asae.core.franjasHorarias.dominio.modelos.FranjaHoraria;
@@ -20,7 +21,7 @@ public class EspacioFisico {
     private Integer id;
     private String nombre;
     private int capacidad;
-    private List<FranjaHoraria> franjasHorarias;
+    private List<FranjaHoraria> franjasHorarias=new ArrayList<>();
 
     public EspacioFisico(String nombre,int capacidad){
         this.nombre=nombre;

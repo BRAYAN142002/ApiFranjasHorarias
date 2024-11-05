@@ -17,7 +17,7 @@ public class GestionarDocenteGatewayImplAdapter implements IGestionarDocenteGate
 
     private final ModelMapper mapper;
 
-    public GestionarDocenteGatewayImplAdapter(DocenteRepositoryInt objDocenteRepository, @Qualifier("DocenteModelMapper")ModelMapper docenteModelMapper) {
+    public GestionarDocenteGatewayImplAdapter(DocenteRepositoryInt objDocenteRepository, @Qualifier("docenteModelMapper")ModelMapper docenteModelMapper) {
         this.objDocenteRepository = objDocenteRepository;
         this.mapper = docenteModelMapper;
     }
