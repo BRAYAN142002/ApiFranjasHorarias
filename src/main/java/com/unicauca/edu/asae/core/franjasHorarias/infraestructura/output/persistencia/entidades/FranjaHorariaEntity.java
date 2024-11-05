@@ -4,9 +4,9 @@ import java.sql.Time;
 
 import com.unicauca.edu.asae.core.espacioFisico.infraestructura.output.persistencia.entidades.EspacioFisicoEntity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -35,11 +35,11 @@ public class FranjaHorariaEntity {
     @Column(name="hora_fin", nullable=false)
     private Time hora_fin;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="espacio_fisico_id",nullable=false)
     private EspacioFisicoEntity objEspacioFisico;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="curso_id")
     private CursoEntity objCurso;
 

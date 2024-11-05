@@ -50,23 +50,24 @@ public class CrearFranjaHorariaService implements ICrearFranjaHorariaCUPort{
                 List<EspacioFisico> objAux=this.validarEspacioFisicoGatewayPort.disponibilidadEspacioFisico(franjaHoraria.getDia(), franjaHoraria.getHora_inicio(), franjaHoraria.getHora_fin(), franjaHoraria.getObjEspacioFisico().getId());
 
                 if(objAux.size()!=0){
-                    this.franjaHorariaFormateadorResultadosPort.retornarRespuestaErrorReglaDeNegocio("Error, el espacio fisico esta ocupado en esa franja horaria");
+                    this.franjaHorariaFormateadorResultadosPort.retornarRepuestaErrorEspacioFisicoOcupado("Error, el espacio fisico esta ocupado en esa franja horaria");
                 }else{
                     if(verificarDocente(franjaHoraria)){
 
                         franjaHoraria.setObjEspacioFisico(objEspacioFisico.get());
                     }else{
-                        this.franjaHorariaFormateadorResultadosPort.retornarRespuestaErrorReglaDeNegocio("Error, El docente esta registrado en otra franja Horaria");
+                        this.franjaHorariaFormateadorResultadosPort.retornarRespuestaErrorDocenteOcupado("Error, El docente esta registrado en otra franja Horaria");
+                        
                     }
                 }
              
 
             }else{
-                this.franjaHorariaFormateadorResultadosPort.retornarRespuestaErrorEntidadNOExiste("Error, no se encuentra el espacio fisico con ese id");
+                this.franjaHorariaFormateadorResultadosPort.retornarRespuestaErrorEspacioFisicoNoEncontado("Error, no se encuentra el espacio fisico con ese id");
             }
 
         }else{
-            this.franjaHorariaFormateadorResultadosPort.retornarRespuestaErrorEntidadNOExiste("Error, no se encuentra creado el curso con ese id");
+            this.franjaHorariaFormateadorResultadosPort.retornarRespuestaErrorCursoNoEncontrado("Error, no se encuentra creado el curso con ese id");
         }
        return this.crearFranjaHorariaGatewayPort.crearFranjaHoraria(franjaHoraria);
     }

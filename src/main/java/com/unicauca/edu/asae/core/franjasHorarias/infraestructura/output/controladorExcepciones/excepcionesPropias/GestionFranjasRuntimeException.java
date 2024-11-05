@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public abstract class GestionClientesRuntimeException extends RuntimeException {
+public abstract class GestionFranjasRuntimeException extends RuntimeException {
 
   protected CodigoError codigoError;
 

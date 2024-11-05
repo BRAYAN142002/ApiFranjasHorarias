@@ -2,7 +2,7 @@ package com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.contro
 
 import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.controladorExcepciones.estructuraExcepciones.CodigoError;
 
-public class ReglaNegocioExcepcion extends GestionClientesRuntimeException {
+public class ReglaNegocioExcepcion extends GestionFranjasRuntimeException {
 
   private static final String FORMATO_EXCEPCION = "%s - Violación a regla de negocio: %s";
 

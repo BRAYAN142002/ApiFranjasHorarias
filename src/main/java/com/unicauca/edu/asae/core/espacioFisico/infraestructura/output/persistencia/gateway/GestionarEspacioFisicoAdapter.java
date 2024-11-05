@@ -42,7 +42,7 @@ public class GestionarEspacioFisicoAdapter implements IGestionarEspacioFisicoGat
 
     @Override
     public List<EspacioFisico> listarEspaciosFisicos(String nombre, Integer capacidad) {
-        Iterable<EspacioFisicoEntity> lstEspaciosFisicos = this.espacioFisicoRepository.findByNombreContainingIgnoreCaseAndCapacidadGreaterThanEqualOrderByNombreAsc(nombre, capacidad);
+        Iterable<EspacioFisicoEntity> lstEspaciosFisicos = this.espacioFisicoRepository.findByNombreStartingWithIgnoreCaseAndCapacidadGreaterThanEqualOrderByNombreAsc(nombre, capacidad);
         List<EspacioFisico> espacioFisicos = this.espacioFisicoModelMapper.map(lstEspaciosFisicos, new TypeToken<List<EspacioFisico>>() {
 		}.getType());
         return espacioFisicos;

@@ -16,8 +16,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.controladorExcepciones.estructuraExcepciones.CodigoError;
 import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.controladorExcepciones.estructuraExcepciones.ErrorUtils;
+import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.controladorExcepciones.excepcionesPropias.CursoNoExisteException;
+import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.controladorExcepciones.excepcionesPropias.DocenteOcupadoException;
 import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.controladorExcepciones.excepcionesPropias.EntidadNoExisteException;
 import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.controladorExcepciones.excepcionesPropias.EntidadYaExisteException;
+import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.controladorExcepciones.excepcionesPropias.EspacioFisicOcupadoException;
+import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.controladorExcepciones.excepcionesPropias.EspacioFisicoNoExisteException;
 import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.controladorExcepciones.excepcionesPropias.ReglaNegocioExcepcion;
 import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.controladorExcepciones.estructuraExcepciones.Error;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,6 +32,7 @@ import jakarta.validation.ConstraintViolationException;
 @ControllerAdvice
 public class RestApiExceptionHandler {
 
+        
         @ExceptionHandler(Exception.class)
         public ResponseEntity<Error> handleGenericException(final HttpServletRequest req,
                         final Exception ex, final Locale locale) {
@@ -50,6 +55,54 @@ public class RestApiExceptionHandler {
                                 .setUrl(req.getRequestURL().toString()).setMetodo(req.getMethod());
                 return new ResponseEntity<>(error, HttpStatus.NOT_ACCEPTABLE);
         }
+        @ExceptionHandler(DocenteOcupadoException.class)
+         public ResponseEntity<Error> handleGenericException(final HttpServletRequest req,
+            final DocenteOcupadoException ex) {
+        final Error error = ErrorUtils
+                .crearError(CodigoError.DOCENTE_OCUPADO.getCodigo(),
+                        String.format("%s, %s", CodigoError.DOCENTE_OCUPADO.getLlaveMensaje(),
+                                ex.getMessage()),
+                        HttpStatus.NOT_ACCEPTABLE.value())
+                .setUrl(req.getRequestURL().toString()).setMetodo(req.getMethod());
+        return new ResponseEntity<>(error, HttpStatus.NOT_ACCEPTABLE);
+        }
+
+         @ExceptionHandler(EspacioFisicOcupadoException.class)
+         public ResponseEntity<Error> handleGenericException(final HttpServletRequest req,
+            final EspacioFisicOcupadoException ex) {
+                final Error error = ErrorUtils
+                .crearError(CodigoError.ESPACIO_OCUPADO.getCodigo(),
+                        String.format("%s, %s", CodigoError.ESPACIO_OCUPADO.getLlaveMensaje(),
+                                ex.getMessage()),
+                        HttpStatus.NOT_ACCEPTABLE.value())
+                .setUrl(req.getRequestURL().toString()).setMetodo(req.getMethod());
+        return new ResponseEntity<>(error, HttpStatus.NOT_ACCEPTABLE);
+        }
+        @ExceptionHandler(CursoNoExisteException.class)
+        public ResponseEntity<Error> handleGenericException(final HttpServletRequest req,
+            final CursoNoExisteException ex) {
+                final Error error = ErrorUtils
+                .crearError(CodigoError.CURSO_NOENCONTRADO.getCodigo(),
+                        String.format("%s, %s", CodigoError.CURSO_NOENCONTRADO.getLlaveMensaje(),
+                                ex.getMessage()),
+                        HttpStatus.NOT_FOUND.value())
+                .setUrl(req.getRequestURL().toString()).setMetodo(req.getMethod());
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+        }
+
+        @ExceptionHandler(EspacioFisicoNoExisteException.class)
+        public ResponseEntity<Error> handleGenericException(final HttpServletRequest req,
+            final EspacioFisicoNoExisteException ex) {
+                final Error error = ErrorUtils
+                .crearError(CodigoError.ESPACIOFISICO_NOENCONTRADO.getCodigo(),
+                        String.format("%s, %s", CodigoError.ESPACIOFISICO_NOENCONTRADO.getLlaveMensaje(),
+                                ex.getMessage()),
+                        HttpStatus.NOT_FOUND.value())
+                .setUrl(req.getRequestURL().toString()).setMetodo(req.getMethod());
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+        }
+
+
 
         @ExceptionHandler(ReglaNegocioExcepcion.class)
         public ResponseEntity<Error> handleGenericException(final HttpServletRequest req,
@@ -63,7 +116,7 @@ public class RestApiExceptionHandler {
 
         @ExceptionHandler(EntidadNoExisteException.class)
         public ResponseEntity<Error> handleGenericException(final HttpServletRequest req,
-                        final EntidadNoExisteException ex, final Locale locale) {
+                        final EntidadNoExisteException ex) {
                 final Error error = ErrorUtils
                                 .crearError(CodigoError.ENTIDAD_NO_ENCONTRADA.getCodigo(),
                                                 String.format("%s, %s",

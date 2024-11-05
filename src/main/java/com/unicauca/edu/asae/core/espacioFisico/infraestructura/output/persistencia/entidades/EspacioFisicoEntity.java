@@ -3,7 +3,6 @@ package com.unicauca.edu.asae.core.espacioFisico.infraestructura.output.persiste
 
 import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.persistencia.entidades.FranjaHorariaEntity;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

@@ -2,7 +2,6 @@ package com.unicauca.edu.asae.core.docente.infraestructura.output.persistencia.g
 
 import java.sql.Time;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
