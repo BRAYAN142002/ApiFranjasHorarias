@@ -33,8 +33,8 @@ public class EspacioFisicoEntity {
     @Column(name="capacidad",nullable=false)
     private int capacidad;
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "objEspacioFisicoEntity")
-    private List<FranjaHorariaEntity>franjasHorariasEntity;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "objEspacioFisico")
+    private List<FranjaHorariaEntity>listaFranjasHorarias;
 
     public EspacioFisicoEntity(String nombre,int capacidad){
         this.nombre=nombre;

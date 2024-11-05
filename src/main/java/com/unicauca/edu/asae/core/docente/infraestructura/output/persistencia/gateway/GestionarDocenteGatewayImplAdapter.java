@@ -1,12 +1,12 @@
 package com.unicauca.edu.asae.core.docente.infraestructura.output.persistencia.gateway;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import com.unicauca.edu.asae.core.docente.aplicacion.output.IGestionarDocenteGatewayPort;
 import com.unicauca.edu.asae.core.docente.dominio.models.Docente;
 import com.unicauca.edu.asae.core.docente.infraestructura.output.persistencia.entidades.DocenteEntity;
 import com.unicauca.edu.asae.core.docente.infraestructura.output.persistencia.repositorios.DocenteRepositoryInt;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 
 @Service

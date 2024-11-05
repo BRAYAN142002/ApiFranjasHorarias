@@ -21,7 +21,7 @@ public class EspacioFisico {
     private Integer id;
     private String nombre;
     private int capacidad;
-    private List<FranjaHoraria> franjasHorarias=new ArrayList<>();
+    private List<FranjaHoraria> listaFranjasHorarias=new ArrayList<>();
 
     public EspacioFisico(String nombre,int capacidad){
         this.nombre=nombre;

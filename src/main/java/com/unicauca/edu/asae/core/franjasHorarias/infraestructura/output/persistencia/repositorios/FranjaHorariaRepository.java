@@ -10,8 +10,8 @@ import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.output.persist
 
 public interface  FranjaHorariaRepository extends CrudRepository<FranjaHorariaEntity, Integer>{
    @Query("SELECT f FROM FranjaHorariaEntity f " +
-       "JOIN f.objCursoEntity c " +
-       "JOIN c.listaDocentesEntity d " + 
+       "JOIN f.objCurso c " +
+       "JOIN c.listaDocentes d " + 
        "WHERE d.id = :idDocente")
 List<FranjaHorariaEntity> listarPorDocente(@Param("idDocente") Integer idDocente);
 

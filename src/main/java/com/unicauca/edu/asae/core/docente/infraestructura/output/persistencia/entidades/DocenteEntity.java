@@ -31,8 +31,8 @@ public class DocenteEntity extends PersonaEntity{
     @JoinColumn(name = "idOficina")    
     private OficinaEntity oficinaAsignada;
 
-    @ManyToMany(cascade={CascadeType.PERSIST},mappedBy="listaDocentesEntity")
-    private List<CursoEntity> listaCursosEntity;
+    @ManyToMany(cascade={CascadeType.PERSIST},mappedBy="listaDocentes")
+    private List<CursoEntity> listaCursos;
 
   
 

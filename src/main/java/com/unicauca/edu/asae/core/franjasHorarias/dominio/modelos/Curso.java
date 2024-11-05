@@ -21,7 +21,7 @@ import lombok.Setter;
 public class Curso {
     private Integer id;
     private String nombre;
-    private List<FranjaHoraria> franjasHorarias =new ArrayList<>();
+    private List<FranjaHoraria> listaFranjasHorarias =new ArrayList<>();
     private Asignatura objAsignatura;
     private List<Docente> listaDocentes= new ArrayList<>();
     public Curso(String nombre){

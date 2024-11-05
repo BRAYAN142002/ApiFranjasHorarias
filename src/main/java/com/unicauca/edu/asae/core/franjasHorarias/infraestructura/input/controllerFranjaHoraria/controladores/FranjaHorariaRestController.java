@@ -10,10 +10,12 @@ import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.input.controll
 import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.input.controllerFranjaHoraria.DTORespuesta.FranjaHorariaDTORespuesta;
 import com.unicauca.edu.asae.core.franjasHorarias.infraestructura.input.controllerFranjaHoraria.mappers.FranjaHorariaMapper;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -21,12 +23,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RestController
 @RequestMapping("api/franjahoraria")
 @RequiredArgsConstructor
+@Validated
 public class FranjaHorariaRestController {
     private final ICrearFranjaHorariaCUPort crearFranjaHorariaCUPort;
     private final FranjaHorariaMapper objMapper;
 
     @PostMapping("/create")
-    public ResponseEntity<FranjaHorariaDTORespuesta> crearFranjaHoraria(@RequestBody FranjaHorarariaDTOPeticion peticion) {
+    public ResponseEntity<FranjaHorariaDTORespuesta> crearFranjaHoraria(@RequestBody @Valid FranjaHorarariaDTOPeticion peticion) {
         FranjaHoraria obFranjaHoraria=this.objMapper.mapperPetecionAFranjaHoraria(peticion);
         obFranjaHoraria=this.crearFranjaHorariaCUPort.crearFranjaHoraria(obFranjaHoraria);
         ResponseEntity<FranjaHorariaDTORespuesta> objRespuesta=new ResponseEntity<>(objMapper.mapperFranjaHorariaDTORespuesta(obFranjaHoraria),HttpStatus.CREATED);

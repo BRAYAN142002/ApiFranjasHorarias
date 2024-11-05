@@ -35,13 +35,13 @@ public class FranjaHorariaEntity {
     @Column(name="hora_fin", nullable=false)
     private Time hora_fin;
     
-    @ManyToOne(cascade={CascadeType.PERSIST})
+    @ManyToOne
     @JoinColumn(name="espacio_fisico_id",nullable=false)
-    private EspacioFisicoEntity objEspacioFisicoEntity;
+    private EspacioFisicoEntity objEspacioFisico;
 
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name="curso_id")
-    private CursoEntity objCursoEntity;
+    private CursoEntity objCurso;
 
     public FranjaHorariaEntity(String dia,Time horaInicio,Time horaFin){
         this.dia=dia;

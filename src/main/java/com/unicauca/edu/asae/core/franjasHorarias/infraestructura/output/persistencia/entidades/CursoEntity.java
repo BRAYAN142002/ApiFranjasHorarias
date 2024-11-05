@@ -35,18 +35,18 @@ public class CursoEntity {
     @Column(name="nombre",nullable=false,length=70)
     private String nombre;
     
-    @OneToMany(cascade=CascadeType.PERSIST,mappedBy="objCursoEntity")
-    private List<FranjaHorariaEntity> franjasHorariasEntity;
+    @OneToMany(mappedBy="objCurso")
+    private List<FranjaHorariaEntity> listaFranjasHorarias;
 
     @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name="asignatura_id")
-    private AsignaturaEntity objAsignaturaEntity;
+    private AsignaturaEntity objAsignatura;
 
     @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(name="curso_docente",
                 joinColumns = @JoinColumn(name= "idCurso"),
                 inverseJoinColumns = @JoinColumn(name= "idDocente"))
-    private List<DocenteEntity>listaDocentesEntity;
+    private List<DocenteEntity>listaDocentes;
 
     public CursoEntity(String nombre){
         this.nombre=nombre;

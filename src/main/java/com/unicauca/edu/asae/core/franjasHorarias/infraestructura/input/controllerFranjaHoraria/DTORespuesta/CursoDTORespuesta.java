@@ -8,6 +8,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class CursoDTORespuesta {
-    private Integer idCurso;
+    private Integer id;
     private String nombre;
 }

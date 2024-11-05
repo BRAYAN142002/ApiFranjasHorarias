@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class EspacioFisicoDTORespuesta {
-    private Integer idEspacioFisico;
+    private Integer id;
     private String nombre;
     private int capacidad;
     

@@ -68,7 +68,7 @@ public class CrearFranjaHorariaService implements ICrearFranjaHorariaCUPort{
         }else{
             this.franjaHorariaFormateadorResultadosPort.retornarRespuestaErrorEntidadNOExiste("Error, no se encuentra creado el curso con ese id");
         }
-       return this.crearFranjaHoraria(franjaHoraria);
+       return this.crearFranjaHorariaGatewayPort.crearFranjaHoraria(franjaHoraria);
     }
 
     public boolean verificarDocente(FranjaHoraria objFranjaHoraria){

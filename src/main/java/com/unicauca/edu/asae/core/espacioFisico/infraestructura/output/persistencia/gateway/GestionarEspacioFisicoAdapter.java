@@ -1,8 +1,10 @@
 package com.unicauca.edu.asae.core.espacioFisico.infraestructura.output.persistencia.gateway;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +38,14 @@ public class GestionarEspacioFisicoAdapter implements IGestionarEspacioFisicoGat
     public Optional<EspacioFisico> obtenerPorId(Integer id){
         Optional<EspacioFisicoEntity>espacioFisicoEntity=espacioFisicoRepository.findById(id);
         return espacioFisicoEntity.map(entity->espacioFisicoModelMapper.map(entity, EspacioFisico.class));
+    }
+
+    @Override
+    public List<EspacioFisico> listarEspaciosFisicos(String nombre, Integer capacidad) {
+        Iterable<EspacioFisicoEntity> lstEspaciosFisicos = this.espacioFisicoRepository.findByNombreContainingIgnoreCaseAndCapacidadGreaterThanEqualOrderByNombreAsc(nombre, capacidad);
+        List<EspacioFisico> espacioFisicos = this.espacioFisicoModelMapper.map(lstEspaciosFisicos, new TypeToken<List<EspacioFisico>>() {
+		}.getType());
+        return espacioFisicos;
     }
    
     

@@ -10,10 +10,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class FranjaHorariaDTORespuesta {
-    private Integer idFranjaHoraria;
+    private Integer id;
     private  String dia;
-    private Time horaInicio;
-    private Time horaFin;
-    private CursoDTORespuesta curso;
-    private EspacioFisicoDTORespuesta espacioFisico;
+    private Time hora_inicio;
+    private Time hora_fin;
+    private CursoDTORespuesta objCurso;
+    private EspacioFisicoDTORespuesta objEspacioFisico;
 }

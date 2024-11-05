@@ -1,5 +1,7 @@
 package com.unicauca.edu.asae.core.espacioFisico.infraestructura.input.controllerGestionarEspaciosFisicos.mappers;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 
 import com.unicauca.edu.asae.core.espacioFisico.dominio.modelos.EspacioFisico;
@@ -11,4 +13,6 @@ public interface  EspacioFisicoMapperInfraestructuraDominio {
     EspacioFisico mapperPeticionAEspacioFisico(EspacioFisicoDTOPeticion peticion);
 
     EspacioFIsicoDTORespuesta mappearEspacioFisicoARespuesta(EspacioFisico espacioFisico);
+
+    List<EspacioFIsicoDTORespuesta> mappearEspaciosFisicosARespuesta(List<EspacioFisico> espacioFisicos);
 }

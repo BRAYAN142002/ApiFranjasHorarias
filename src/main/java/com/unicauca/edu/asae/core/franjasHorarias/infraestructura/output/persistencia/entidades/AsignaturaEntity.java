@@ -31,11 +31,12 @@ public class AsignaturaEntity {
     @Column(name="codigo",nullable=false,length=50)
     private String codigo;
 
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="objAsignaturaEntity")
-    private List<CursoEntity> cursosEntity;
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="objAsignatura")
+    private List<CursoEntity> listaCursos;
 
     public AsignaturaEntity(String nombre,String codigo){
         this.nombre=nombre;
         this.codigo=codigo;
     }
+    
 }
