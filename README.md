@@ -1,2 +1,2 @@
 # Diagrama de Base de Datos
-![](https://asset.cloudinary.com/dxfwitnnn/7712fe562e94fbea4f69ef5476c3ac53)
+![](https://res.cloudinary.com/dxfwitnnn/image/upload/v1736539883/BasedeDatos_wddus2.png)
