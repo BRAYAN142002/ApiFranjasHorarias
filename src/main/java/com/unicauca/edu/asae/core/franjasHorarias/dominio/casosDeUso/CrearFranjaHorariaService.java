@@ -37,6 +37,8 @@ public class CrearFranjaHorariaService implements ICrearFranjaHorariaCUPort{
 
     @Override
     public FranjaHoraria crearFranjaHoraria(FranjaHoraria franjaHoraria) {
+        
+
         Optional<Curso> objCurso=gestionarCursoGatewayPort.obtenerCursoPorId(franjaHoraria.getObjCurso().getId());
 
         Optional<EspacioFisico> objEspacioFisico=gestionarEspacioFisicoGatewayPort.obtenerPorId(franjaHoraria.getObjEspacioFisico().getId());
