@@ -2,7 +2,7 @@
 
 La Facultad de Ingeniería Electrónica y Telecomunicaciones (**FIET**) de la **Universidad del Cauca** enfrenta dificultades en la **gestión de horarios** debido a la asignación manual y descentralizada de las franjas horarias para los cursos de pregrado. Esto genera **conflictos de disponibilidad**, errores en la planificación y **retrasos en la validación de la carga académica** de los docentes.  
 
-Para solucionar este problema, se ha desarrollado un **sistema digital automatizado en ambito academico** que permite:  
+Para solucionar este problema, se ha desarrollado un **sistema digital automatizado en un ambito academico** que permite:  
 
 ✅ **Planificar franjas horarias** para cada curso.  
 ✅ **Asignar espacios físicos disponibles** de forma eficiente.  
